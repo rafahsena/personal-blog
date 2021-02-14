@@ -1,6 +1,6 @@
 const articleTheme = {
   baseStyle: ({ colorMode }) => ({
-    padding: 8,
+    padding: 4,
     flex: 1,
     borderBottom: "1px solid",
     borderColor: colorMode === "light" ? "gray.300" : "gray.500",

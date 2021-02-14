@@ -1,6 +1,7 @@
 export const POSTS_QUERY = `{
     allArticles {
       id
+      tag
       content {
         ... on TextRecord {
           text
