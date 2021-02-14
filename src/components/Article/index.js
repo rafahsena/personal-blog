@@ -1,10 +1,24 @@
-import { Heading, Box, Flex, Text, HStack } from "@chakra-ui/react";
+import {
+  Heading,
+  Box,
+  Flex,
+  Text,
+  HStack,
+  useColorMode,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import Image from "next/image";
 
 const Article = ({ article }) => {
   const [text, image] = article.content;
+
+  const style = useStyleConfig("Article");
+
   return (
-    <Flex key={article.id} padding={8} flex={1} borderBottom="1px solid #fff">
+    <Flex
+      key={article.id}
+      {...style}
+    >
       <HStack spacing={8}>
         <Image
           src={image.image.url}
@@ -12,7 +26,6 @@ const Article = ({ article }) => {
           width={90}
           height={70}
         />
-        Spa
         <Box flexGrow={1}>
           <Heading as="h3" size="lg">
             {article.title}

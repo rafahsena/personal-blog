@@ -1,13 +1,13 @@
 import React from "react";
 import Sidebar from "../Sidebar";
-import { Container } from "../Container";
+import { BlogContainer } from "../BlogContainer";
 
 const MainPage = ({ children }) => {
   return (
-    <Container height="100vh" >
+    <BlogContainer height="100vh">
       <Sidebar />
       {children}
-    </Container>
+    </BlogContainer>
   );
 };
 

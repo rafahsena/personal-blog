@@ -1,10 +1,12 @@
-import { Box, useColorModeValue, Text } from "@chakra-ui/react";
+import { Box, Text, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 
 const Sidebar = () => {
-  const sidebarBackground = useColorModeValue("#E2E8F0", "#202225");
+  
+  const style = useStyleConfig("Sidebar");
+
   return (
-    <Box padding={8} backgroundColor={sidebarBackground}>
+    <Box padding={8} {...style}>
       <Text>Sidebar</Text>
     </Box>
   );
