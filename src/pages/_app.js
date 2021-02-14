@@ -1,4 +1,5 @@
 import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
+import Head from "next/head";
 import Header from "../components/Header";
 import MainPage from "../components/MainPage";
 
@@ -13,7 +14,15 @@ function MyApp({ Component, pageProps }) {
           initialColorMode: "dark",
         }}
       >
-        <Header/>
+        <Head>
+          <title>Reactive GameDev</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <meta property="og:title" content="Reactive GameDev" key="title" />
+        </Head>
+        <Header />
         <MainPage>
           <Component {...pageProps} />
         </MainPage>
