@@ -4,7 +4,7 @@ import { BlogContainer } from "../BlogContainer";
 
 const MainPage = ({ children }) => {
   return (
-    <BlogContainer height="100vh">
+    <BlogContainer minHeight="100vh">
       <Sidebar />
       {children}
     </BlogContainer>
