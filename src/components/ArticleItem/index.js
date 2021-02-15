@@ -7,17 +7,24 @@ import {
   Code,
 } from "@chakra-ui/react";
 import Tag from "../Tag";
+import { useRouter } from "next/router";
 
 import dayjs from "dayjs";
 
-const Article = ({ article }) => {
-  const { title, ...style } = useStyleConfig("Article");
+const ArticleItem = ({ article }) => {
+  const { title, ...style } = useStyleConfig("Articles");
+  
+  const router = useRouter();
+
+  const handleArticleClick = () => {
+    router.push(`/articles/${article.slug}`);
+  };
 
   return (
-    <Flex key={article.id} {...style}>
+    <Flex {...style} onClick={handleArticleClick}>
       <VStack spacing={4} align="flex-start">
         <Box flexGrow={1}>
-          <Heading as="h4" size="md" color={title}>
+          <Heading as="h3" size="lg" color={title}>
             {article.title}
           </Heading>
         </Box>
@@ -36,4 +43,4 @@ const Article = ({ article }) => {
   );
 };
 
-export default Article;
+export default ArticleItem;

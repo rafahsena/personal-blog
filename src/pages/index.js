@@ -1,20 +1,15 @@
-import Article from "../components/Article";
+import AllArticles from "../screens/Articles";
 import { request } from "../lib/api";
-import { ALL_ARTICLES_QUERY } from "../queries/queries";
+import { ALL_ARTICLES } from "../queries/queries";
 
-const Index = ({ posts }) => {
-  return (
-    <div>
-      {posts?.allArticles.map((article) => (
-        <Article article={article} />
-      ))}
-    </div>
-  );
+const Index = ({ articles }) => {
+  return <AllArticles articles={articles} />;
 };
 
 export async function getServerSideProps() {
-  const posts = await request({ query: ALL_ARTICLES_QUERY });
-  return { props: { posts } };
+  const articles = await request({ query: ALL_ARTICLES });
+  
+  return { props: { articles } };
 }
 
 export default Index;
