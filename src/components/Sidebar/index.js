@@ -21,7 +21,7 @@ const Sidebar = () => {
     <Flex {...styles}>
       <VStack spacing={4}>
         <Link
-          href="https://rafahsena.dev"
+          href="https://blog.rafahsena.dev"
           target="_blank"
           rel="noreferrer noopener"
         >
