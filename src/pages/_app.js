@@ -1,7 +1,8 @@
 import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 import Head from "next/head";
 import Header from "../components/Header";
-import MainPage from "../components/MainPage";
+import BlogContainer from "../components/BlogContainer";
+import Sidebar from "../screens/Sidebar";
 
 import theme from "../theme/index";
 import dayjs from "dayjs";
@@ -34,9 +35,10 @@ function MyBlog({ Component, pageProps }) {
           />
         </Head>
         <Header />
-        <MainPage>
+        <BlogContainer minHeight="100vh">
+          <Sidebar />
           <Component {...pageProps} />
-        </MainPage>
+        </BlogContainer>
       </ColorModeProvider>
     </ChakraProvider>
   );

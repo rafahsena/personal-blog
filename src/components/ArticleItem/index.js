@@ -7,21 +7,14 @@ import {
   Code,
 } from "@chakra-ui/react";
 import Tag from "../Tag";
-import { useRouter } from "next/router";
 
 import dayjs from "dayjs";
 
-const ArticleItem = ({ article }) => {
+const ArticleItem = ({ article, onClick }) => {
   const { title, ...style } = useStyleConfig("Articles");
-  
-  const router = useRouter();
-
-  const handleArticleClick = () => {
-    router.push(`/articles/${article.slug}`);
-  };
 
   return (
-    <Flex {...style} onClick={handleArticleClick}>
+    <Flex {...style} onClick={onClick}>
       <VStack spacing={4} align="flex-start">
         <Box flexGrow={1}>
           <Heading as="h3" size="lg" color={title}>

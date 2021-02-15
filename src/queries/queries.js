@@ -15,16 +15,6 @@ export const GET_ARTICLE = `query GetArticle($filter: ArticleModelFilter) {
     title
     _publishedAt
     slug
-    content {
-      ... on TextRecord {
-        text
-      }
-      ... on ImageRecord {
-        image {
-          url()
-        	alt()
-        }
-      }
-    }
+    content
   }
 }`;

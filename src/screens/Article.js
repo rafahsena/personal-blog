@@ -1,11 +1,19 @@
 import React from "react";
-import { Box, Flex, Heading, useStyleConfig, VStack } from "@chakra-ui/react";
-import Image from "next/image";
+import {
+  Box,
+  Code,
+  Flex,
+  Heading,
+  useStyleConfig,
+  VStack,
+} from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
+import readTime from "../helpers/readTime";
+
+import dayjs from "dayjs";
 
 const Article = ({ article }) => {
   const { title, ...styles } = useStyleConfig("Article");
-  const [{ text }, { image }] = article.content;
 
   return (
     <Flex {...styles}>
@@ -13,11 +21,16 @@ const Article = ({ article }) => {
         <Heading as="h3" color={title} marginY={8}>
           {article.title}
         </Heading>
-        {image && (
-          <Image src={image.url} alt={image.alt} width={400} height={312} />
-        )}
+        <Code>{`Publicado em ${dayjs(article._publishedAt).format(
+          "LL"
+        )} • ☕️ ${readTime(article.content)} min de leitura`}</Code>
         <Box maxWidth={800} lineHeight={1.6}>
-          <ReactMarkdown>{text}</ReactMarkdown>
+          <ReactMarkdown
+            className="custom-markdown"
+            parserOptions={{ commonmark: true }}
+          >
+            {article.content}
+          </ReactMarkdown>
         </Box>
       </VStack>
     </Flex>

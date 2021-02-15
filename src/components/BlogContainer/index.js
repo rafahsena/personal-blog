@@ -13,3 +13,5 @@ export const BlogContainer = (props) => {
     />
   );
 };
+
+export default BlogContainer;
