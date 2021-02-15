@@ -3,8 +3,8 @@ import { extendTheme } from "@chakra-ui/react";
 
 // Foundational style overrides
 import fonts from "./foundations/fonts";
-
 import breakpoints from "./foundations/breakpoints";
+import colors from "./foundations/colors";
 
 // Component style overrides
 import Article from "./components/article";
@@ -18,9 +18,7 @@ const components = {
 };
 
 const overrides = {
-  colors: {
-    black: "#16161D",
-  },
+  colors,
   breakpoints,
   fonts,
   components

@@ -1,19 +1,8 @@
-export const POSTS_QUERY = `{
+export const ALL_ARTICLES_QUERY = `{
     allArticles {
       id
       tag
-      content {
-        ... on TextRecord {
-          text
-        }
-        ... on ImageRecord {
-          image {
-            url()
-            alt()
-          }
-        }
-      }
       title
-      createdAt
+      _publishedAt
     }
   }`

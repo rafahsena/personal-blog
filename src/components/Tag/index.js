@@ -6,7 +6,6 @@ const TagComponent = ({ tagName, ...restProps }) => {
   return (
     <Tag
       size="md"
-      key={tagName}
       variant="solid"
       colorScheme="purple"
       {...restProps}

@@ -4,8 +4,14 @@ import Header from "../components/Header";
 import MainPage from "../components/MainPage";
 
 import theme from "../theme/index";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import "dayjs/locale/pt-br";
 
-function MyApp({ Component, pageProps }) {
+dayjs.locale('pt-br');
+dayjs.extend(localizedFormat);
+
+function MyBlog({ Component, pageProps }) {
   return (
     <ChakraProvider resetCSS theme={theme}>
       <ColorModeProvider
@@ -15,12 +21,12 @@ function MyApp({ Component, pageProps }) {
         }}
       >
         <Head>
-          <title>Reactive GameDev</title>
+          <title>Reactive Dev</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <meta property="og:title" content="Reactive GameDev" key="title" />
+          <meta property="og:title" content="Reactive Dev" key="title" />
         </Head>
         <Header />
         <MainPage>
@@ -31,4 +37,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default MyBlog;

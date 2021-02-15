@@ -1,6 +1,6 @@
 import Article from "../components/Article";
 import { request } from "../lib/api";
-import { POSTS_QUERY } from "../queries/queries";
+import { ALL_ARTICLES_QUERY } from "../queries/queries";
 
 const Index = ({ posts }) => {
   return (
@@ -13,7 +13,7 @@ const Index = ({ posts }) => {
 };
 
 export async function getServerSideProps() {
-  const posts = await request({ query: POSTS_QUERY });
+  const posts = await request({ query: ALL_ARTICLES_QUERY });
   return { props: { posts } };
 }
 

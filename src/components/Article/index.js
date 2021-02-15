@@ -2,39 +2,35 @@ import {
   Heading,
   Box,
   Flex,
-  Text,
-  HStack,
   useStyleConfig,
   VStack,
+  Code,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import Tag from "../Tag";
 
-const Article = ({ article }) => {
-  const [text, image] = article.content;
+import dayjs from "dayjs";
 
-  const style = useStyleConfig("Article");
+const Article = ({ article }) => {
+  const { title, ...style } = useStyleConfig("Article");
 
   return (
     <Flex key={article.id} {...style}>
-      <VStack spacing={4}>
-        <HStack spacing={8}>
-          <Image
-            src={image.image.url}
-            alt={image.image.alt}
-            width={90}
-            height={70}
-          />
-          <Box flexGrow={1}>
-            <Heading as="h3" size="lg">
-              {article.title}
-            </Heading>
-            <Text>{text.text}</Text>
-          </Box>
-        </HStack>
-        {article.tag.tags.map((tag) => (
-          <Tag tagName={tag} />
-        ))}
+      <VStack spacing={4} align="flex-start">
+        <Box flexGrow={1}>
+          <Heading as="h4" size="md" color={title}>
+            {article.title}
+          </Heading>
+        </Box>
+        <small>
+          <Code variant="subtle">
+            {`Publicado em ${dayjs(article._publishedAt).format("LL")}`}
+          </Code>
+        </small>
+        <Box>
+          {article.tag.tags.map((tag) => (
+            <Tag tagName={tag} key={tag} />
+          ))}
+        </Box>
       </VStack>
     </Flex>
   );
