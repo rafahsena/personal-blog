@@ -18,12 +18,14 @@ const Article = ({ article }) => {
   return (
     <Flex {...styles}>
       <VStack>
-        <Heading as="h3" color={title} marginY={8}>
+        <Heading alignSelf="flex-start" as="h3" color={title} marginY={4}>
           {article.title}
         </Heading>
-        <Code>{`Publicado em ${dayjs(article._publishedAt).format(
-          "LL"
-        )} • ☕️ ${readTime(article.content)} min de leitura`}</Code>
+        <Code marginY={4} alignSelf="flex-start">{`Publicado em ${dayjs(
+          article._publishedAt
+        ).format("LL")} • ☕️ ${readTime(
+          article.content
+        )} min de leitura`}</Code>
         <Box maxWidth={800} lineHeight={1.6}>
           <ReactMarkdown
             className="custom-markdown"

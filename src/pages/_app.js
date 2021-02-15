@@ -1,4 +1,4 @@
-import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeProvider, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import Header from "../components/Header";
 import BlogContainer from "../components/BlogContainer";
@@ -35,9 +35,11 @@ function MyBlog({ Component, pageProps }) {
           />
         </Head>
         <Header />
-        <BlogContainer minHeight="100vh">
+        <BlogContainer height="100vh">
           <Sidebar />
-          <Component {...pageProps} />
+          <Box overflowY="scroll">
+            <Component {...pageProps} />
+          </Box>
         </BlogContainer>
       </ColorModeProvider>
     </ChakraProvider>

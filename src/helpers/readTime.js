@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-
 const countWords = (str) => {
   str = str.replace(/(^\s*)|(\s*$)/gi, "");
   str = str.replace(/[ ]{2,}/gi, " ");
