@@ -1,6 +1,6 @@
 import { ChakraProvider, ColorModeProvider, Box } from "@chakra-ui/react";
 import Head from "next/head";
-import Header from "../components/Header";
+import Header from "../screens/Header.js";
 import BlogContainer from "../components/BlogContainer";
 import Sidebar from "../screens/Sidebar";
 
@@ -34,10 +34,10 @@ function MyBlog({ Component, pageProps }) {
             rel="stylesheet"
           />
         </Head>
-        <Header />
         <BlogContainer height="100vh">
           <Sidebar />
           <Box overflowY="scroll">
+            <Header />
             <Component {...pageProps} />
           </Box>
         </BlogContainer>

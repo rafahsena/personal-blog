@@ -11,9 +11,8 @@ export const DarkModeSwitch = () => {
     <SunIcon color={color[colorMode]} />
   );
 
-
   return (
-    <Box position="fixed" top="1rem" right="1rem">
+    <Box top="1rem" right="1rem">
       {icon}
       <Switch marginLeft={4} isChecked={isDark} onChange={toggleColorMode} />
     </Box>

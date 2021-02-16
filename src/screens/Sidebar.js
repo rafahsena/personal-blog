@@ -13,17 +13,21 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 
 import { GrGithub, GrSpotify, GrLinkedin } from "react-icons/gr";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const styles = useStyleConfig("Sidebar");
+
+  const router = useRouter();
+
+  const onHomePageClick = () => router.push('/');
 
   return (
     <Flex {...styles}>
       <VStack spacing={4}>
         <Link
-          href="https://blog.rafahsena.dev"
-          target="_blank"
-          rel="noreferrer noopener"
+          onClick={onHomePageClick}
+          as="div"
         >
           Página Inicial
         </Link>

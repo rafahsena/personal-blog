@@ -13,12 +13,14 @@ import Article from "./components/article";
 import Articles from "./components/articles";
 import BlogContainer from "./components/container";
 import Sidebar from "./components/sidebar";
+import Header from "./components/header";
 
 const components = {
   Article,
   Articles,
   BlogContainer,
-  Sidebar
+  Sidebar,
+  Header
 };
 
 const overrides = {
