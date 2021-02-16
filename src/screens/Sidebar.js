@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Flex,
   useStyleConfig,
@@ -18,17 +18,18 @@ import { useRouter } from "next/router";
 const Sidebar = () => {
   const styles = useStyleConfig("Sidebar");
 
+  const [search, setSearch] = useState("");
+
   const router = useRouter();
 
-  const onHomePageClick = () => router.push('/');
+  const onHomePageClick = () => router.push("/");
+
+  const onSearchClick = () => router.push({ pathname: "/", query: { search } });
 
   return (
     <Flex {...styles}>
       <VStack spacing={4}>
-        <Link
-          onClick={onHomePageClick}
-          as="div"
-        >
+        <Link onClick={onHomePageClick} as="div">
           Página Inicial
         </Link>
         <Link
@@ -42,11 +43,14 @@ const Sidebar = () => {
           <Input
             _placeholder={{ color: styles.color }}
             variant="filled"
-            placeholder="Buscar por texto ou tag"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por texto"
           />
           <IconButton
             colorScheme="blue"
             aria-label="Search articles"
+            onClick={onSearchClick}
             icon={<SearchIcon />}
           />
         </HStack>

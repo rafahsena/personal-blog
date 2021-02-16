@@ -8,6 +8,7 @@ import theme from "../theme/index";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import "dayjs/locale/pt-br";
+import MainPage from "../screens/MainPage.js";
 
 dayjs.locale("pt-br");
 dayjs.extend(localizedFormat);
@@ -34,13 +35,9 @@ function MyBlog({ Component, pageProps }) {
             rel="stylesheet"
           />
         </Head>
-        <BlogContainer height="100vh">
-          <Sidebar />
-          <Box overflowY="scroll">
-            <Header />
-            <Component {...pageProps} />
-          </Box>
-        </BlogContainer>
+        <MainPage>
+          <Component {...pageProps} />
+        </MainPage>
       </ColorModeProvider>
     </ChakraProvider>
   );

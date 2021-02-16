@@ -1,5 +1,5 @@
-export const ALL_ARTICLES = `{
-    allArticles {
+export const ALL_ARTICLES = `query GetArticles($filter: ArticleModelFilter) {
+    allArticles(filter: $filter) {
       id
       tag
       title

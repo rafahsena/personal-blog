@@ -6,9 +6,14 @@ const Index = ({ articles }) => {
   return <AllArticles articles={articles} />;
 };
 
-export async function getServerSideProps() {
-  const articles = await request({ query: ALL_ARTICLES });
-  
+export async function getServerSideProps(context) {
+  const search = context?.query?.search || "";
+  const variables = { filter: { title: { matches: { pattern: search } } } };
+  const articles = await request({
+    query: ALL_ARTICLES,
+    variables,
+  });
+
   return { props: { articles } };
 }
 
