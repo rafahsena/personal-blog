@@ -7,6 +7,10 @@ const styles = {
         h6: {
           color: "blog.title.dark",
         },
+        a: {
+          color: "blog.title.dark",
+          borderColor: "blog.title.dark",
+        },
       },
       h6: {
         color: "blog.title.light",
@@ -15,7 +19,17 @@ const styles = {
       },
       img: {
           margin: "0 auto"
-      }
+      },
+      a: {
+        color: "blog.title.light",
+        display: "inline",
+        paddingBottom: "1px",
+        borderBottom: "1px solid",
+        borderColor: "blog.title.light",
+        _hover: {
+          border: "none"
+        }
+      },
     },
   },
 };
