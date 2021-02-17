@@ -39,7 +39,7 @@ const Sidebar = () => {
         >
           Portfólio
         </Link>
-        <HStack>
+        <HStack paddingX={8}>
           <Input
             _placeholder={{ color: styles.color }}
             variant="filled"
