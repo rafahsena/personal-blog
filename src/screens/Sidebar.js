@@ -87,9 +87,11 @@ const MobileDrawer = React.memo(({ children, ...restProps }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box sx={{ "@media screen and (min-width: 64em)": { display: "none" } }}>
+    <Box
+      position="fixed"
+      sx={{ "@media screen and (min-width: 64em)": { display: "none" } }}
+    >
       <IconButton
-        position="fixed"
         aria-label="Open Drawer"
         onClick={onOpen}
         icon={<HamburgerIcon />}
@@ -107,7 +109,7 @@ const MobileDrawer = React.memo(({ children, ...restProps }) => {
   );
 });
 
-const ReponsiveSidebar = () => {
+const ReponsiveSidebar = React.memo(() => {
   const styles = useStyleConfig("Sidebar");
   return (
     <>
@@ -117,11 +119,11 @@ const ReponsiveSidebar = () => {
       >
         <SidebarContent titleColor={styles.color} />
       </Flex>
-      <MobileDrawer {...styles} >
+      <MobileDrawer {...styles}>
         <SidebarContent titleColor={styles.color} />
       </MobileDrawer>
     </>
   );
-};
+});
 
 export default ReponsiveSidebar;

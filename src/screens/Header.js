@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
 
-const Header = () => {
+const Header = React.memo(() => {
   const styles = useStyleConfig("Header");
   const router = useRouter();
 
@@ -19,6 +19,6 @@ const Header = () => {
       <DarkModeSwitch />
     </Flex>
   );
-};
+});
 
 export default Header;

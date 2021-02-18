@@ -4,8 +4,7 @@ import BlogContainer from "../components/BlogContainer";
 import ReponsiveSidebar from "./Sidebar";
 import Header from "./Header";
 
-const MainPage = ({ children }) => {
-
+const MainPage = React.memo(({ children }) => {
   return (
     <BlogContainer height="100vh">
       <ReponsiveSidebar />
@@ -15,6 +14,6 @@ const MainPage = ({ children }) => {
       </Box>
     </BlogContainer>
   );
-};
+});
 
 export default MainPage;

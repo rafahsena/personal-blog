@@ -10,7 +10,7 @@ import Tag from "../Tag";
 
 import dayjs from "dayjs";
 
-const ArticleItem = ({ article, onClick }) => {
+const ArticleItem = React.memo(({ article, onClick }) => {
   const { title, ...style } = useStyleConfig("Articles");
 
   return (
@@ -34,6 +34,6 @@ const ArticleItem = ({ article, onClick }) => {
       </VStack>
     </Flex>
   );
-};
+});
 
 export default ArticleItem;

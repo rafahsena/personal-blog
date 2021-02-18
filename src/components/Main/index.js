@@ -1,6 +1,8 @@
-import { Stack } from '@chakra-ui/react'
+import { Stack } from "@chakra-ui/react";
+import React from "react";
 
-export const Main = (props) => (
+
+export const Main = React.memo((props) => (
   <Stack
     spacing="1.5rem"
     width="100%"
@@ -10,4 +12,4 @@ export const Main = (props) => (
     px="1rem"
     {...props}
   />
-)
+));

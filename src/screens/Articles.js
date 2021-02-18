@@ -3,7 +3,7 @@ import ArticleItem from "../components/ArticleItem";
 import { useRouter } from "next/router";
 import { Flex, Heading } from "@chakra-ui/layout";
 
-const AllArticles = ({ articles }) => {
+const AllArticles = React.memo(({ articles }) => {
   const router = useRouter();
 
   const handleArticleClick = (slug) => {
@@ -28,6 +28,6 @@ const AllArticles = ({ articles }) => {
       )}
     </div>
   );
-};
+});
 
 export default AllArticles;

@@ -12,7 +12,7 @@ import readTime from "../helpers/readTime";
 
 import dayjs from "dayjs";
 
-const Article = ({ article }) => {
+const Article = React.memo(({ article }) => {
   const { title, ...styles } = useStyleConfig("Article");
 
   return (
@@ -37,6 +37,6 @@ const Article = ({ article }) => {
       </VStack>
     </Flex>
   );
-};
+});
 
 export default Article;

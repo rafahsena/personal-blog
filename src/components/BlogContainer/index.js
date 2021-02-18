@@ -1,6 +1,7 @@
 import { Grid, useStyleConfig } from "@chakra-ui/react";
+import React from "react";
 
-export const BlogContainer = (props) => {
+export const BlogContainer = React.memo((props) => {
   const style = useStyleConfig("BlogContainer");
 
   return (
@@ -11,6 +12,6 @@ export const BlogContainer = (props) => {
       {...style}
     />
   );
-};
+});
 
 export default BlogContainer;

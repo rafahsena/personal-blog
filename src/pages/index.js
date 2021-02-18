@@ -2,9 +2,9 @@ import AllArticles from "../screens/Articles";
 import { request } from "../lib/api";
 import { ALL_ARTICLES } from "../queries/queries";
 
-const Index = ({ articles }) => {
+const Index = React.memo(({ articles }) => {
   return <AllArticles articles={articles} />;
-};
+});
 
 export async function getServerSideProps(context) {
   const search = context?.query?.search || "";

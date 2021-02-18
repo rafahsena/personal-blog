@@ -1,18 +1,12 @@
 import React from "react";
 import { Tag } from "@chakra-ui/react";
 
-const TagComponent = ({ tagName, ...restProps }) => {
-  
+const TagComponent = React.memo(({ tagName, ...restProps }) => {
   return (
-    <Tag
-      size="md"
-      variant="solid"
-      colorScheme="purple"
-      {...restProps}
-    >
+    <Tag size="md" variant="solid" colorScheme="purple" {...restProps}>
       {tagName}
     </Tag>
   );
-};
+});
 
 export default TagComponent;
