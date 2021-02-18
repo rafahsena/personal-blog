@@ -2,7 +2,7 @@ import { ChakraProvider, ColorModeProvider, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import Header from "../screens/Header.js";
 import BlogContainer from "../components/BlogContainer";
-import Sidebar from "../screens/Sidebar";
+import ReponsiveSidebar from "../screens/Sidebar";
 
 import theme from "../theme/index";
 import dayjs from "dayjs";

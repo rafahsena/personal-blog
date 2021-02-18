@@ -1,6 +1,6 @@
 const articleTheme = {
   baseStyle: ({ colorMode }) => ({
-    margin: 16,
+    margin: { base: 4, lg: 16 },
     justifyContent: "center",
     textAlign: "justify",
     flex: 1,
