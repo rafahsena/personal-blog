@@ -83,7 +83,7 @@ const SidebarContent = ({ titleColor }) => {
   );
 };
 
-const MobileDrawer = React.memo(({ children }) => {
+const MobileDrawer = React.memo(({ children, ...restProps }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -92,12 +92,12 @@ const MobileDrawer = React.memo(({ children }) => {
         position="fixed"
         aria-label="Open Drawer"
         onClick={onOpen}
-        icon={<HamburgerIcon/>}
+        icon={<HamburgerIcon />}
         variant="ghost"
       />
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent {...restProps}>
             <DrawerCloseButton />
             {children}
           </DrawerContent>
@@ -117,7 +117,7 @@ const ReponsiveSidebar = () => {
       >
         <SidebarContent titleColor={styles.color} />
       </Flex>
-      <MobileDrawer>
+      <MobileDrawer {...styles} >
         <SidebarContent titleColor={styles.color} />
       </MobileDrawer>
     </>
