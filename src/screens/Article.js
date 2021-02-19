@@ -10,9 +10,11 @@ import {
 import ReactMarkdown from "react-markdown";
 import readTime from "../helpers/readTime";
 
+import Link from "next/link";
+
 import dayjs from "dayjs";
 
-const Article = React.memo(({ article }) => {
+const Article = React.memo(({ article, previousArticle, nextArticle }) => {
   const { title, ...styles } = useStyleConfig("Article");
 
   return (
@@ -26,13 +28,26 @@ const Article = React.memo(({ article }) => {
         ).format("LL")} • ☕️ ${readTime(
           article.content
         )} min de leitura`}</Code>
-        <Box maxWidth={800} lineHeight={1.6}>
-          <ReactMarkdown
-            className="custom-markdown"
-            parserOptions={{ commonmark: true }}
-          >
+        <Box width={800} lineHeight={1.6} className="custom-markdown">
+          <ReactMarkdown parserOptions={{ commonmark: true }}>
             {article.content}
           </ReactMarkdown>
+          <Flex justifyContent="space-between" marginTop={8}>
+            <span>
+              {previousArticle && (
+                <Link href={`/articles/${previousArticle.slug}`}>
+                  {`← ${previousArticle.title}`}
+                </Link>
+              )}
+            </span>
+            <span>
+              {nextArticle && (
+                <Link href={`/articles/${nextArticle.slug}`}>
+                  {`${nextArticle.title} →`}
+                </Link>
+              )}
+            </span>
+          </Flex>
         </Box>
       </VStack>
     </Flex>
