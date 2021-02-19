@@ -28,11 +28,20 @@ const Article = React.memo(({ article, previousArticle, nextArticle }) => {
         ).format("LL")} • ☕️ ${readTime(
           article.content
         )} min de leitura`}</Code>
-        <Box width={800} lineHeight={1.6} className="custom-markdown">
+        <Box
+          width={{ lg: 800 }}
+          maxWidth={800}
+          lineHeight={1.6}
+          className="custom-markdown"
+        >
           <ReactMarkdown parserOptions={{ commonmark: true }}>
             {article.content}
           </ReactMarkdown>
-          <Flex justifyContent="space-between" marginTop={8}>
+          <Flex
+            justifyContent="space-between"
+            marginTop={8}
+            flexDirection={{ sm: "column", lg: "row" }}
+          >
             <span>
               {previousArticle && (
                 <Link href={`/articles/${previousArticle.slug}`}>
