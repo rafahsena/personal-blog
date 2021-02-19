@@ -6,10 +6,11 @@ export const BlogContainer = React.memo((props) => {
 
   return (
     <Grid
-      direction="row"
-      templateColumns={{lg: "20% 80%" }}
       {...props}
       {...style}
+      direction="row"
+      templateColumns={{lg: "20% 80%" }}
+      display={{sm: "block", lg: "grid"}}
     />
   );
 });

@@ -21,13 +21,19 @@ import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import { GrGithub, GrSpotify, GrLinkedin } from "react-icons/gr";
 import { useRouter } from "next/router";
 
-const SidebarContent = ({ titleColor }) => {
+const SidebarContent = ({ titleColor, onClose }) => {
   const [search, setSearch] = useState("");
   const router = useRouter();
 
-  const onHomePageClick = () => router.push("/");
+  const onHomePageClick = () => {
+    router.push("/");
+    if(onClose) onClose();
+  };
 
-  const onSearchClick = () => router.push({ pathname: "/", query: { search } });
+  const onSearchClick = () => {
+    router.push({ pathname: "/", query: { search } });
+    if(onClose) onClose();
+  };
 
   return (
     <VStack spacing={4}>
@@ -83,34 +89,41 @@ const SidebarContent = ({ titleColor }) => {
   );
 };
 
-const MobileDrawer = React.memo(({ children, ...restProps }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  return (
-    <Box
-      position="fixed"
-      sx={{ "@media screen and (min-width: 64em)": { display: "none" } }}
-    >
-      <IconButton
-        aria-label="Open Drawer"
-        onClick={onOpen}
-        icon={<HamburgerIcon />}
-        variant="ghost"
-      />
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent {...restProps}>
-            <DrawerCloseButton />
-            {children}
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-    </Box>
-  );
-});
+const MobileDrawer = React.memo(
+  ({ children, onOpen, onClose, isOpen, ...restProps }) => {
+    return (
+      <Box
+        position="sticky"
+        sx={{ "@media screen and (min-width: 64em)": { display: "none" } }}
+      >
+        <IconButton
+          aria-label="Open Drawer"
+          onClick={onOpen}
+          icon={<HamburgerIcon />}
+          variant="ghost"
+        />
+        <Drawer
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          autoFocus={false}
+        >
+          <DrawerOverlay>
+            <DrawerContent {...restProps}>
+              <DrawerCloseButton />
+              {children}
+            </DrawerContent>
+          </DrawerOverlay>
+        </Drawer>
+      </Box>
+    );
+  }
+);
 
 const ReponsiveSidebar = React.memo(() => {
   const styles = useStyleConfig("Sidebar");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Flex
@@ -119,8 +132,13 @@ const ReponsiveSidebar = React.memo(() => {
       >
         <SidebarContent titleColor={styles.color} />
       </Flex>
-      <MobileDrawer {...styles}>
-        <SidebarContent titleColor={styles.color} />
+      <MobileDrawer
+        {...styles}
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+      >
+        <SidebarContent titleColor={styles.color} onClose={onClose} />
       </MobileDrawer>
     </>
   );

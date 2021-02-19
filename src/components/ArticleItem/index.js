@@ -7,8 +7,8 @@ import {
   Code,
 } from "@chakra-ui/react";
 import Tag from "../Tag";
-
 import dayjs from "dayjs";
+import React from "react";
 
 const ArticleItem = React.memo(({ article, onClick }) => {
   const { title, ...style } = useStyleConfig("Articles");

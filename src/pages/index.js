@@ -1,6 +1,7 @@
 import AllArticles from "../screens/Articles";
 import { request } from "../lib/api";
 import { ALL_ARTICLES } from "../queries/queries";
+import React from "react";
 
 const Index = React.memo(({ articles }) => {
   return <AllArticles articles={articles} />;
