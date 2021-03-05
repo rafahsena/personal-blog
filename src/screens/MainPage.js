@@ -6,7 +6,7 @@ import Header from "./Header";
 
 const MainPage = React.memo(({ children }) => {
   return (
-    <BlogContainer height="100vh">
+    <BlogContainer minHeight={{sm: "100vh"}}>
       <ReponsiveSidebar />
       <Box overflowY="scroll">
         <Header />
